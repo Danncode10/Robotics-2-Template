@@ -6,7 +6,8 @@ Read these files first:
 
 - `Activity.md`
 - `docs/connections.md`
-- `arduino/RobTemplate/RobTemplate.ino`
+- `CLAUDE.md`
+- The active sketch in `arduino/<ProjectName>/<ProjectName>.ino`
 
 Create or update the Mermaid wiring schema in `docs/connections.md`.
 
@@ -18,6 +19,8 @@ Requirements:
 - Add a pin assignment table if one is missing.
 - Preserve existing project notes unless they are clearly outdated.
 - If a connection is uncertain, add it under a `Questions / Assumptions` section instead of guessing silently.
+- If no Arduino sketch exists yet, infer the intended project name from `Activity.md` and create `arduino/<ProjectName>/<ProjectName>.ino`.
+- Ensure the Arduino sketch folder and `.ino` file use the exact same name.
 
 Preferred Mermaid format:
 
@@ -30,4 +33,3 @@ flowchart LR
     Arduino -- "5V" --> Component
     Arduino -- "GND" --> Component
 ```
-
