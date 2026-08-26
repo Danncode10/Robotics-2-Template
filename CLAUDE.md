@@ -6,15 +6,57 @@ This repository is a reusable template for Arduino electronics and robotics acti
 
 When helping with this project, act as an Arduino project assistant. Keep the workspace organized, beginner-friendly, and ready for Arduino IDE.
 
-For every new activity:
+**Components:** The Arduino Upgraded Learning Kit includes exactly these 29 components:
 
-1. Read `Activity.md` first.
-2. Update `docs/connections.md` with the correct components, pin mapping, and Mermaid wiring diagrams.
-3. Create an Arduino sketch folder inside `arduino/`.
-4. Name the sketch folder and `.ino` file exactly the same.
-5. Keep documentation and code synchronized whenever pins, modules, or behavior change.
+### Microcontroller & Power
+- UNO R3: Main microcontroller board
+- USB Cable: Power and programming cable
+- 9V Battery with DC: Battery clip connector with DC jack
 
-## Arduino Sketch Rules
+### Sensors
+- RC522 Module: RFID reader module
+- RTC Module: Real-time clock module
+- Water Level Sensor: (Labeled as Water Lever Sensor)
+- Humidity Sensor: DHT sensor
+- Sound Sensor Module: Acoustic detection board
+- Flame Sensor: Infrared flame/fire detector
+- IR Receive Sensor: Remote signal receiver
+- LM35DZ: Precision centigrade temperature sensor
+- 3pcs Photoresistance: Light-dependent resistors (LDRs)
+
+### Displays & Indicators
+- LCD 1602 with IIC: 16x2 character display with I2C adapter
+- RGB Module: Tri-color LED module
+- 1 Digital Tube: 1-digit 7-segment display
+- 4 Digital Tube: 4-digit 7-segment display
+- Matrix Tube: LED dot-matrix display
+- 15pcs LED: Assorted light-emitting diodes
+
+### Motors & Controllers
+- Joystick Module: 2-axis analog thumbstick
+- Motor Driver Module: Stepper motor driver board
+- Motor: Small stepper motor
+- 1 Channel Module: Single-channel relay module
+- 9G Servo: Micro servo motor
+
+### Inputs, Wiring & Accessories
+- White Card: RFID card
+- Key Chain: RFID key fob
+- Key Board: Matrix keypad
+- MB-102 Breadboard: Solderless prototyping board
+- 65pcs Jumper Wire: Male-to-male jumper wires
+- 10pcs F-M Cable: Female-to-male Dupont wires
+- Remote: Infrared remote control
+- 10K Potentiometer: Rotary variable resistor
+- Buzzer: Audio output module
+- 2pcs Ball Switches: Tilt/vibration switches
+- 5pcs Switches with Caps: Push-button switches
+- 30pcs Resistance: Assorted resistor pack
+- 74HC595: 8-bit shift register integrated circuit
+
+These are the only components available for this project. No additional components should be assumed or added.
+
+### Arduino Sketch Rules
 
 Arduino IDE expects this structure:
 
