@@ -2,18 +2,18 @@
 
 ## Project Title
 
-Activity 3 - Ultrasonic Sensor and Motor Vehicle Prototype
+Activity 3 - Ultrasonic Sensor and Servo Motor Prototype
 
 ## Project Description
 
-Create a prototype for a vehicle that will use a motor to move forward. Use an ultrasonic sensor to detect an obstacle. If an obstacle is detected within an appropriate distance, make the vehicle reverse.
+Create a prototype that uses an ultrasonic sensor to detect obstacles and a servo motor to react. If the distance to an obstacle is greater than 3cm, the servo stays in the leftmost position. If an obstacle is detected within 3cm, the servo moves to the rightmost position.
 
 ## Objectives
 
-- Connect an ultrasonic sensor to detect distances to obstacles.
-- Connect a motor (DC motor via motor driver or continuous servo) to propel a vehicle.
-- Program the Arduino to move the vehicle forward by default.
-- Program the Arduino to read distance from the ultrasonic sensor and reverse the motor when an obstacle is within a set distance threshold.
+- Connect an ultrasonic sensor to detect distance.
+- Connect a servo motor to the Arduino.
+- Program the Arduino to read distance from the ultrasonic sensor.
+- Program the servo to stay in the left position (0 degrees) when distance > 3cm, and move to the right position (180 degrees) when distance <= 3cm.
 
 ## Required Components
 
@@ -21,43 +21,38 @@ Create a prototype for a vehicle that will use a motor to move forward. Use an u
 | --- | --- | --- |
 | 1 | Arduino Uno / compatible board | Main controller |
 | 1 | Ultrasonic Sensor (e.g., HC-SR04) | To detect obstacles |
-| 1 | Motor Driver Module / Shield | To drive the motor (if using DC motor) |
-| 1 | Motor (DC Motor or Servo) | For vehicle movement |
-| 1 | External Power Supply | For the motor/driver (e.g., 9V Battery or battery pack) |
+| 1 | 9G Servo Motor | To visually indicate detection |
 | 1 | Breadboard | For circuit connections |
 | 1 | USB cable | |
 | 10+ | Jumper wires | |
 
 ## Pin Assignment
 
-*(Assuming HC-SR04 Ultrasonic Sensor and a generic Motor Driver with 2 control pins for 1 motor)*
-
 | Arduino Pin | Connected Component | Purpose |
 | --- | --- | --- |
 | D2 | Ultrasonic ECHO pin | Read reflected pulse |
 | D3 | Ultrasonic TRIG pin | Trigger ultrasonic pulse |
-| D4 | Motor Driver IN1 (or Servo signal pin) | Motor direction control 1 |
-| D5 | Motor Driver IN2 | Motor direction control 2 (if applicable) |
-| 5V | Ultrasonic VCC | Sensor power |
+| D4 | Servo Signal | Control servo position |
+| 5V | Ultrasonic & Servo VCC | Component power |
 | GND | All component grounds | Common ground |
 
 ## Expected Behavior
 
-When the sketch starts, the motor rotates in a direction that moves the vehicle forward. The ultrasonic sensor continuously checks the distance ahead. When an obstacle is detected within the set threshold (e.g., 15 cm), the motor direction reverses to back the vehicle away.
+When the sketch starts, the ultrasonic sensor continuously checks the distance ahead. As long as the distance is greater than 3 cm, the servo motor remains positioned to the left (0 degrees). If an object comes within 3 cm, the servo motor swings to the right (180 degrees) and stays there until the obstacle is removed.
 
 ## Build Checklist
 
 - [ ] Components prepared
 - [ ] Wiring completed (ensure common grounds)
 - [ ] Code uploaded
-- [ ] Distance threshold tuned
+- [ ] Distance threshold tuned to 3cm
 - [ ] Project tested
 - [ ] Documentation updated
 
 ## Observations
 
-Observe the responsiveness of the ultrasonic sensor and the transition speed of the motor switching from forward to reverse.
+Observe the responsiveness of the ultrasonic sensor and the speed at which the servo moves between the left and right positions.
 
 ## Submission Notes
 
-Submit the Arduino sketch folder `arduino/UltrasonicMotorPrototype/` and this activity documentation.
+Submit the Arduino sketch folder `arduino/UltrasonicServoPrototype/` and this activity documentation.

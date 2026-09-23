@@ -1,13 +1,18 @@
-// Activity 3 - Ultrasonic Sensor and Motor Vehicle Prototype
+#include <Servo.h>
+
+// Activity 3 - Ultrasonic Sensor and Servo Motor Prototype
 
 // Pin Constants
 const int ECHO_PIN = 2;
 const int TRIG_PIN = 3;
-const int MOTOR_IN1 = 4;
-const int MOTOR_IN2 = 5;
+const int SERVO_PIN = 4;
 
 // Settings
-const int DISTANCE_THRESHOLD = 15; // Centimeters
+const int DISTANCE_THRESHOLD = 3; // Centimeters
+const int SERVO_LEFT_POS = 0;     // Degrees
+const int SERVO_RIGHT_POS = 180;  // Degrees
+
+Servo myServo;
 
 void setup() {
   Serial.begin(9600);
@@ -15,8 +20,10 @@ void setup() {
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
   
-  pinMode(MOTOR_IN1, OUTPUT);
-  pinMode(MOTOR_IN2, OUTPUT);
+  myServo.attach(SERVO_PIN);
+  
+  // Set initial position
+  myServo.write(SERVO_LEFT_POS);
   
   Serial.println("System starting...");
 }
@@ -37,16 +44,6 @@ long getDistance() {
   return duration / 29 / 2;
 }
 
-void moveForward() {
-  digitalWrite(MOTOR_IN1, HIGH);
-  digitalWrite(MOTOR_IN2, LOW);
-}
-
-void moveReverse() {
-  digitalWrite(MOTOR_IN1, LOW);
-  digitalWrite(MOTOR_IN2, HIGH);
-}
-
 void loop() {
   long distance = getDistance();
   
@@ -54,14 +51,12 @@ void loop() {
   Serial.print(distance);
   Serial.println(" cm");
   
-  if (distance <= DISTANCE_THRESHOLD) {
-    // Obstacle detected, move reverse
-    moveReverse();
-    // Allow it to reverse for a moment before checking again
-    delay(500); 
+  if (distance > DISTANCE_THRESHOLD) {
+    // Path clear (distance > 3cm), servo stays in left
+    myServo.write(SERVO_LEFT_POS);
   } else {
-    // Path clear, move forward
-    moveForward();
+    // Obstacle detected (distance <= 3cm), servo goes right
+    myServo.write(SERVO_RIGHT_POS);
   }
   
   delay(50);
